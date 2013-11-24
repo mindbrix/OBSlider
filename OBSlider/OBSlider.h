@@ -14,4 +14,6 @@
 @property (strong, nonatomic) NSArray *scrubbingSpeeds;
 @property (strong, nonatomic) NSArray *scrubbingSpeedChangePositions;
 
+@property (assign, nonatomic) CGFloat fatThumbMargin;
+
 @end

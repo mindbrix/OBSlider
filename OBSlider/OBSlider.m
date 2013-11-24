@@ -43,6 +43,23 @@
 }
 
 
+-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+{
+    if( self.fatThumbMargin )
+    {
+        CGRect thumbRect = [ super thumbRectForBounds:self.bounds trackRect:[ super trackRectForBounds:self.bounds ] value:self.value ];
+        //NSLog( @"point = %@, thumbRect = %@", NSStringFromCGPoint( point ), NSStringFromCGRect( thumbRect ));
+        
+        return CGRectContainsPoint( CGRectInset( thumbRect, -self.fatThumbMargin, -self.fatThumbMargin ), point );
+    }
+    else
+    {
+        return [ super pointInside:point withEvent:event ];
+    }
+    
+}
+
+
 #pragma mark - NSCoding
 
 - (id)initWithCoder:(NSCoder *)decoder
